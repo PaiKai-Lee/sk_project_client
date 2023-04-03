@@ -1,9 +1,12 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<script lang="ts">
+	import { goto } from '$app/navigation';
+	import { userStorage } from '$lib/stores';
 
-<style lang="postcss">
-  :global(html) {
-    background-color: theme(colors.gray.100);
-  }
-</style>
+	if (!$userStorage.isAuth) {
+		goto('/login');
+	}
+</script>
+
+{#if $userStorage.isAuth}
+	<h1 class="text-3xl font-bold underline">Hello world!</h1>
+{/if}
