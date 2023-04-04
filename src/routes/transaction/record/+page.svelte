@@ -16,7 +16,7 @@
 			{#each records as { id, orderId, save, cost, remark, userName, createdAt } (id)}
 				<tr class="font-extrabold">
 					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{userName}</td>
-					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{cost}</td>
+					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{cost > 0 ? - cost : 0}</td>
 					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{save}</td>
 					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{remark}</td>
 					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{createdAt}</td>
