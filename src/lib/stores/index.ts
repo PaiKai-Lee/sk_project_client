@@ -13,7 +13,7 @@ interface User {
 
 const initUser: User = {};
 
-export const userStorage = writable(initUser);
+export const userStore = writable(initUser);
 
 export const alert = alertStorage();
 
@@ -57,6 +57,7 @@ function transferStorage() {
 		set,
 		update,
 		getConfirmTransfer,
-		init: (data: any) => set(data)
+		init: (data: any) => set(data),
+		empty: () => set([])
 	};
 }

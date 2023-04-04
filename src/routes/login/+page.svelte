@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import authService from '$lib/services/auth';
-	import { alert, userStorage } from '$lib/stores';
+	import { alert, userStore } from '$lib/stores';
 
-	if ($userStorage.isAuth) goto('/');
+	if ($userStore.isAuth) goto('/');
 
 	// state
 	let inputEmail: string;
@@ -23,12 +23,13 @@
 		}
 		localStorage.setItem('accessToken', result.accessToken);
 		alert.set({ type: 'info', message: `Hi! ${result.name}` });
-		userStorage.set({ ...result, isAuth: true });
+		const { accessToken, ...restResult } = result;
+		userStore.set({ ...restResult, isAuth: true });
 		goto('/');
 	}
 </script>
 
-{#if !$userStorage.isAuth}
+{#if !$userStore.isAuth}
 	<div class="hero mt-36">
 		<div class="hero-content flex-col lg:flex-row-reverse">
 			<div class="text-center lg:text-left lg:max-w-xl">

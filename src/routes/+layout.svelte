@@ -2,19 +2,12 @@
 	import '../app.css';
 	import Alert from '$lib/components/Alert.svelte';
 	import Nav from '$lib/components/Nav.svelte';
-	import { userStorage } from '$lib/stores';
-	import { goto } from '$app/navigation';
+	import { userStore } from '$lib/stores';
 	import type { LayoutData } from './$types';
 
 	export let data: LayoutData;
 
-	if (!data?.user) {
-		goto('/login');
-	} else {
-		userStorage.set({ ...data.user, isAuth: true });
-	}
-
-	console.log('layout svelte');
+	userStore.set(data?.user);
 </script>
 
 <Alert />

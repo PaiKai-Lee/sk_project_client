@@ -1,25 +1,26 @@
-<script>
+<script lang="ts">
 	import { goto } from '$app/navigation';
 	import authService from '$lib/services/auth';
-	import { userStorage } from '$lib/stores';
+	import { userStore } from '$lib/stores';
 	function clickHandler() {
 		authService.logout();
-		userStorage.update((user) => (user = { ...user, isAuth: false }));
+		userStore.update((user) => (user = { ...user, isAuth: false }));
 		goto('/login');
 	}
 </script>
 
 <div class="navbar bg-base-200">
 	<div class="flex-1">
-		<a href="/" class="btn btn-ghost normal-case text-xl">daisyUI</a>
+		<a href="/" class="btn btn-ghost normal-case text-xl">SK_System</a>
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1">
-			{#if $userStorage.isAuth}
+			{#if $userStore.isAuth}
 				<li><button on:click={clickHandler}>Logout</button></li>
 			{:else}
 				<li><a href="/login">Login</a></li>
 			{/if}
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 			<li tabindex="0">
 				<a href="/transaction">
 					交易系統

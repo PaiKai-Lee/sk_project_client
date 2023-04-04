@@ -1,12 +1,10 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { userStorage } from '$lib/stores';
-
-	if (!$userStorage.isAuth) {
-		goto('/login');
-	}
+	import { userStore } from '$lib/stores';
+	
+	if (!$userStore.isAuth) goto('/login');
 </script>
 
-{#if $userStorage.isAuth}
+{#if $userStore.isAuth}
 	<h1 class="text-3xl font-bold underline">Hello world!</h1>
 {/if}

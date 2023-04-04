@@ -7,7 +7,12 @@ interface LoginParams {
 
 class Auth {
 	async login({ email, password }: LoginParams) {
-		return await fetchBackend('post', '/api/login', { email, password });
+		return await fetchBackend('post', '/api/login', {
+			data: {
+				email,
+				password
+			}
+		});
 	}
 
 	logout() {

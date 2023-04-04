@@ -43,7 +43,7 @@
 </script>
 
 {#if visible}
-	<div class="fixed top-8 left-1/2 -translate-x-1/2 w-1/2 z-50">
+	<div class="fixed top-8 left-1/2 -translate-x-1/2 w-1/2 z-[99]">
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div
 			class="alert shadow-lg {alertStyle}"
