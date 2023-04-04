@@ -5,7 +5,7 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		interface PageData {
-			user?:{
+			user: {
 				id: number;
 				name: string;
 				email: string;
@@ -13,7 +13,16 @@ declare global {
 				department: string;
 				points: number;
 				pwdChanged: number;
-			  }
+			};
+			transactionRecords: {
+				id: number;
+				orderId: string;
+				save: number;
+				cost: number;
+				remark: string;
+				userName: string;
+				createdAt: string;
+			};
 		}
 		// interface Platform {}
 	}

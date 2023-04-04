@@ -122,6 +122,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>交易主程式</title>
+</svelte:head>
+
 {#if $transferStore && $transferStore.length > 0}
 	<Toggle bind:switchToggle={showSave}>開啟儲值</Toggle>
 	<Table columns={['名稱', '餘額', '扣款', '存入', '備註']} footer={true}>

@@ -29,6 +29,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>登入頁</title>
+</svelte:head>
+
 {#if !$userStore.isAuth}
 	<div class="hero mt-36">
 		<div class="hero-content flex-col lg:flex-row-reverse">
