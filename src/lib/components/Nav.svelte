@@ -15,7 +15,7 @@
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1">
-			{#if $userStore.isAuth}
+			{#if $userStore.isAuth && localStorage.getItem('accessToken')}
 				<li><button on:click={clickHandler}>Logout</button></li>
 			{:else}
 				<li><a href="/login">Login</a></li>

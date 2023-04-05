@@ -11,7 +11,7 @@
 				<ul class="mb-4">
 					<li class="flex justify-around p-2">
 						{#each columns as column}
-							<p class="w-1/6">{column}</p>
+							<p class="w-1/4">{column}</p>
 						{/each}
 					</li>
 					{#each confirmData as item}
@@ -20,27 +20,27 @@
 								? 'bg-base-200'
 								: 'bg-warning'}"
 						>
-							<p class="w-1/6">{item.name}</p>
+							<p class="w-1/4">{item.name}</p>
 							<input
 								data-id={item.id}
 								type="number"
 								name="cost-{item.id}"
-								value={item.cost}
-								class="bg-inherit focus:outline-none w-1/6"
+								value="{item.cost}"
+								class="bg-inherit focus:outline-none w-1/4"
 								readonly
 							/>
 							<input
 								type="number"
 								name="save-{item.id}"
 								value={item.save}
-								class="bg-inherit focus:outline-none w-1/6"
+								class="bg-inherit focus:outline-none w-1/4"
 								readonly
 							/>
 							<input
 								type="text"
 								name="remark-{item.id}"
 								value={item.remark}
-								class="bg-inherit focus:outline-none w-3/6"
+								class="bg-inherit focus:outline-none w-1/4"
 								readonly
 							/>
 						</li>
