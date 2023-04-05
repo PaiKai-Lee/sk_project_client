@@ -14,12 +14,13 @@
 	<Table columns={['名稱', '扣款', '存入', '備註', '建立時間']} footer={true}>
 		{#if records}
 			{#each records as { id, orderId, save, cost, remark, userName, createdAt } (id)}
+				{@const bgCondition = cost > save ? 'bg-error' : 'bg-base-300'}
 				<tr class="font-extrabold">
-					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{userName}</td>
-					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{cost > 0 ? - cost : 0}</td>
-					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{save}</td>
-					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{remark}</td>
-					<td class={cost > save ? 'bg-error' : 'bg-base-300'}>{createdAt}</td>
+					<td class={bgCondition}>{userName}</td>
+					<td class={bgCondition}>{cost > 0 ? -cost : 0}</td>
+					<td class={bgCondition}>{save}</td>
+					<td class={bgCondition}>{remark}</td>
+					<td class={bgCondition}>{createdAt}</td>
 				</tr>
 			{/each}
 		{/if}

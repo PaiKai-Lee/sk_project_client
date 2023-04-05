@@ -127,7 +127,9 @@
 </svelte:head>
 
 {#if $transferStore && $transferStore.length > 0}
-	<Toggle bind:switchToggle={showSave}>開啟儲值</Toggle>
+	<div class="sticky top-0 z-10">
+		<Toggle bind:switchToggle={showSave}>開啟儲值</Toggle>
+	</div>
 	<Table columns={['名稱', '餘額', '扣款', '存入', '備註']} footer={true}>
 		{#each $transferStore as item (item.id)}
 			<tr class="group">
