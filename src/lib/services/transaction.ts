@@ -14,9 +14,16 @@ interface Record {
 	};
 }
 
+interface GetRecordsParams {
+	page?: number;
+	limit?: number;
+	order?: string;
+	user?: string;
+}
+
 class Transaction {
-	async getAllRecords(params:any) {
-		return fetchBackend('get', '/api/transaction',{params});
+	async getRecords(params: GetRecordsParams) {
+		return fetchBackend('get', '/api/transaction', { params });
 	}
 
 	organizeRecords(data: Record[]) {

@@ -43,5 +43,8 @@ export const dateFormatter = new Intl.DateTimeFormat('zh-TW', {
 	hour: '2-digit',
 	minute: '2-digit',
 	second: '2-digit',
-	hourCycle:'h23'
+	hourCycle: 'h23'
 });
+
+export const arrayRange = (start: number, stop: number, step = 1) =>
+	Array.from({ length: (stop - start) / step + 1 }, (value, index) => start + index * step);
