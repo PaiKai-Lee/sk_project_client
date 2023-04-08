@@ -48,3 +48,19 @@ export const dateFormatter = new Intl.DateTimeFormat('zh-TW', {
 
 export const arrayRange = (start: number, stop: number, step = 1) =>
 	Array.from({ length: (stop - start) / step + 1 }, (value, index) => start + index * step);
+
+export function scrollTo(options: { top?: number; left?: number; behavior: ScrollBehavior }) {
+	// Check if browser supports `window.scrollTo()` method
+	if ('scrollTo' in window) {
+		window.scrollTo(options);
+	} else {
+		// Fallback for browsers that don't support `window.scrollTo()`
+		const { top, left, behavior } = options;
+		//@ts-ignore
+		window.scroll({
+			top,
+			left,
+			behavior
+		});
+	}
+}

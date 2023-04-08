@@ -1,16 +1,16 @@
 <script lang="ts">
 	import Pagination from '$lib/components/Pagination.svelte';
+	import SearchBar from '$lib/components/SearchBar.svelte';
 	import Table from '$lib/components/Table.svelte';
 	import transactionService from '$lib/services/transaction';
+	import { scrollTo } from '$lib/utils';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	let records = data.transactionRecords;
-
+	let { count, limit, transactionRecords: records, page: currentPage } = data;
+	let order = 'desc';
+	let pages = Math.ceil(count / limit);
 	let userName: string;
-	let limit: number;
-	let order: string;
-	let currentPage = 1;
 
 	async function clickPageHandler(e: MouseEvent) {
 		currentPage = +e.target.dataset.page;
@@ -20,8 +20,25 @@
 			page: currentPage,
 			user: userName
 		});
-		const organizeRecords = transactionService.organizeRecords(result);
+		const organizeRecords = transactionService.organizeRecords(result.data);
 		records = organizeRecords;
+		pages = Math.ceil(count / limit);
+		count = result.count;
+	}
+
+	async function searchHandler(e: MouseEvent) {
+		const [result, err] = await transactionService.getRecords({
+			limit,
+			order,
+			page: 1,
+			user: userName
+		});
+		const organizeRecords = transactionService.organizeRecords(result.data);
+		currentPage = 1;
+		records = organizeRecords;
+		pages = Math.ceil(count / limit);
+		count = result.count;
+		scrollTo({ top: 0, behavior: 'smooth' });
 	}
 </script>
 
@@ -30,24 +47,7 @@
 </svelte:head>
 
 <div class="py-2 sticky z-20 top-0 backdrop-blur-md flex justify-end gap-4">
-	<input
-		type="text"
-		placeholder="名稱"
-		class="input input-bordered input-group-md w-full max-w-[14rem]"
-		bind:value={userName}
-	/>
-	<select class="select select-bordered w-full max-w-[10rem]" bind:value={limit}>
-		<option disabled selected>數量</option>
-		<option value="10">10</option>
-		<option value="25" selected>25</option>
-		<option value="40">40</option>
-	</select>
-
-	<select class="select select-bordered w-full max-w-[10rem]" bind:value={order}>
-		<option value="desc" selected>新到舊</option>
-		<option value="asc">舊到新</option>
-	</select>
-	<button class="btn btn-primary">查詢</button>
+	<SearchBar bind:userName bind:limit bind:order on:click={searchHandler} />
 </div>
 <Table columns={['名稱', '扣款', '存入', '備註', '建立時間']} footer={true}>
 	{#if records}
@@ -71,5 +71,5 @@
 	{/if}
 </Table>
 <div class="text-center mt-4">
-	<Pagination bind:currentPage pages={10} on:click={clickPageHandler} />
+	<Pagination bind:currentPage {pages} on:click={clickPageHandler} />
 </div>

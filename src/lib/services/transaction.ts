@@ -16,7 +16,7 @@ interface Record {
 
 interface GetRecordsParams {
 	page?: number;
-	limit?: number;
+	limit?: number | string;
 	order?: string;
 	user?: string;
 }
