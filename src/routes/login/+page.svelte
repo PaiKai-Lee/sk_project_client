@@ -52,7 +52,7 @@
 							<span class="label-text">Email</span>
 						</label>
 						<input
-							type="text"
+							type="email"
 							placeholder="email"
 							class="input input-bordered"
 							bind:value={inputEmail}
@@ -64,7 +64,7 @@
 							<span class="label-text">Password</span>
 						</label>
 						<input
-							type="text"
+							type="password"
 							placeholder="password"
 							class="input input-bordered"
 							bind:value={inputPassword}
