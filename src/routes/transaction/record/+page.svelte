@@ -71,5 +71,5 @@
 	{/if}
 </Table>
 <div class="text-center mt-4">
-	<Pagination bind:currentPage {pages} on:click={clickPageHandler} />
+	<Pagination bind:currentPage bind:pages on:click={clickPageHandler} />
 </div>

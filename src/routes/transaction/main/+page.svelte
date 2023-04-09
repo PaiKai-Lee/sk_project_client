@@ -40,7 +40,6 @@
 			fields: 'points',
 			order: 'points,desc'
 		});
-		console.log(userResult);
 		if (err) {
 			alert.set({ type: 'error', message: err.statusText });
 			return;

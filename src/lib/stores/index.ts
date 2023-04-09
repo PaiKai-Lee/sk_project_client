@@ -12,11 +12,11 @@ interface User {
 }
 
 const initUser: User = {};
-
+// 使用者資訊
 export const userStore = writable(initUser);
-
+// 警示條
 export const alert = alertStorage();
-
+// 交易資料
 export const transferStore = transferStorage();
 
 function alertStorage() {
