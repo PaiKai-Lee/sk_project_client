@@ -36,7 +36,7 @@
 
 	// life cycle
 	onMount(async () => {
-		const [userResult, err] = await userService.getAllUser({
+		const [userResult, err] = await userService.getAllUsers({
 			fields: 'points',
 			order: 'points,desc'
 		});

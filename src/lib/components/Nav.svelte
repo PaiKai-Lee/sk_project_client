@@ -15,11 +15,8 @@
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1">
-			{#if $userStore.isAuth && localStorage.getItem('accessToken')}
-				<li><button on:click={clickHandler}>Logout</button></li>
-			{:else}
-				<li><a href="/login">Login</a></li>
-			{/if}
+			<li><a href="/progress">專案項目</a></li>
+			<li><a href="/admin">管理者</a></li>
 			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 			<li tabindex="0">
 				<a href="/transaction">
@@ -39,6 +36,11 @@
 					<li><a href="/transaction/leaderboard">餘額排行榜</a></li>
 				</ul>
 			</li>
+			{#if $userStore.isAuth && localStorage.getItem('accessToken')}
+				<li><button on:click={clickHandler}>Logout</button></li>
+			{:else}
+				<li><a href="/login">Login</a></li>
+			{/if}
 		</ul>
 	</div>
 </div>
