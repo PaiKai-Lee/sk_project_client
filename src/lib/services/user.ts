@@ -1,13 +1,16 @@
 import { fetchBackend } from '../utils';
 
 class User {
-	async getAllUser(params?: {
-		fields?: string;
-		page?: number;
-		limit?: number;
-		order?: string;
-	}) {
+	async getAllUsers(params?: { fields?: string; page?: number; limit?: number; order?: string }) {
 		return await fetchBackend('get', '/api/user', { params });
+	}
+
+	async getAllUsersPoints() {
+		return await fetchBackend('get', '/api/user/points');
+	}
+
+	async changePassword(data: { password: string; confirmPassword: string }) {
+		return await fetchBackend('patch', '/api/user/password', { data });
 	}
 }
 
