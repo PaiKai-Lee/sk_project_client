@@ -1,1 +1,1 @@
-<h1 class="font-bold text-6xl p-6">Page Not Found!!!</h1>
+<h1 class="font-bold text-6xl p-6 text-center">Page Not Found !</h1>

@@ -17,6 +17,13 @@
 			</ul>
 		</div>
 		<div class="w-full p-2 my-4 shadow-md shadow-zinc-400 rounded-xl">
+			<p class="text-lg font-bold">使用者設定</p>
+			<ul class="list-disc list-inside">
+				<li class="line-through">密碼變更談窗</li>
+				<li class="line-through">密碼變更功能</li>
+			</ul>
+		</div>
+		<div class="w-full p-2 my-4 shadow-md shadow-zinc-400 rounded-xl">
 			<p class="text-lg font-bold">Line bot整合</p>
 		</div>
 	</div>
