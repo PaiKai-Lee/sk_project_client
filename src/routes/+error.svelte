@@ -1,1 +1,7 @@
-<h1 class="font-bold text-6xl p-6 text-center">Page Not Found !</h1>
+<script>
+	import errorPage from '$lib/assets/error-page.svg';
+</script>
+
+<div class="h-full flex justify-center items-center">
+	<img src={errorPage} alt="error-page" />
+</div>

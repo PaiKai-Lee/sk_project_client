@@ -17,14 +17,22 @@
 			</ul>
 		</div>
 		<div class="w-full p-2 my-4 shadow-md shadow-zinc-400 rounded-xl">
-			<p class="text-lg font-bold">使用者設定</p>
+			<p class="text-lg font-bold">Line bot整合</p>
+		</div>
+		<div class="w-full p-2 my-4 shadow-md shadow-zinc-400 rounded-xl">
+			<p class="text-lg font-bold">主畫面</p>
 			<ul class="list-disc list-inside">
-				<li class="line-through">密碼變更談窗</li>
-				<li class="line-through">密碼變更功能</li>
+				<li class="line-through">網站Banner</li>
+				<li>顯示公司夥伴grid</li>
+				<li>個人圖片彈出簡介</li>
 			</ul>
 		</div>
 		<div class="w-full p-2 my-4 shadow-md shadow-zinc-400 rounded-xl">
-			<p class="text-lg font-bold">Line bot整合</p>
+			<p class="text-lg font-bold">使用者設定</p>
+			<ul class="list-disc list-inside">
+				<li class="line-through">密碼變更彈窗</li>
+				<li class="line-through">密碼變更功能</li>
+			</ul>
 		</div>
 	</div>
 </div>

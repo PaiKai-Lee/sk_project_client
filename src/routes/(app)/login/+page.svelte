@@ -32,16 +32,15 @@
 <svelte:head>
 	<title>登入頁</title>
 </svelte:head>
-
 {#if !$userStore.isAuth}
-	<div class="hero mt-36">
+	<div class="hero h-full">
 		<div class="hero-content flex-col lg:flex-row-reverse">
 			<div class="text-center lg:text-left lg:max-w-xl">
 				<h1 class="text-5xl font-bold">Login First!</h1>
 				<p class="py-6">
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam veritatis, repellat ducimus
-					atque illum reprehenderit at incidunt, perferendis expedita veniam excepturi quia
-					blanditiis quos pariatur enim et delectus ea voluptates?
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam veritatis, repellat
+					ducimus atque illum reprehenderit at incidunt, perferendis expedita veniam excepturi
+					quia blanditiis quos pariatur enim et delectus ea voluptates?
 				</p>
 			</div>
 			<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

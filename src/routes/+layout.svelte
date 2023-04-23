@@ -10,6 +10,7 @@
 	import { goto } from '$app/navigation';
 	import type { LayoutData } from './$types';
 	import { onDestroy, onMount } from 'svelte';
+	import Banner from '$lib/components/Banner.svelte';
 
 	export let data: LayoutData;
 	let showModal = false;
@@ -79,11 +80,9 @@
 </script>
 
 <Alert />
-<div class="min-h-screen">
+<div class="h-screen flex flex-col">
 	<Nav on:showModal={() => (showModal = true)} on:logout={logout} />
-	<div class="container h-full mx-auto xl:px-4">
-		<slot />
-	</div>
+	<slot />
 </div>
 
 <Modal bind:showModal>

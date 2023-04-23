@@ -7,9 +7,9 @@
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- svelte-ignore a11y-label-has-associated-control -->
-<div class="navbar bg-base-200">
+<div class="navbar bg-base-100 border-b-2">
 	<div class="flex-1">
-		<a href="/" class="btn btn-ghost normal-case text-xl">SK_System</a>
+		<a href="/" class="btn btn-ghost normal-case text-2xl">SK_System</a>
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1">
