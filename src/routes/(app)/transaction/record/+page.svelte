@@ -45,7 +45,7 @@
 <svelte:head>
 	<title>交易紀錄</title>
 </svelte:head>
-
+<!-- 不會一直黏在頂部? -->
 <div class="py-2 sticky z-20 top-0 backdrop-blur-md flex justify-end gap-4">
 	<SearchBar bind:userName bind:limit bind:order on:click={searchHandler} />
 </div>

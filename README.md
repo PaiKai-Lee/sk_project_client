@@ -1,38 +1,30 @@
-# create-svelte
+# SK_System
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+sveltekit & Nestjs 練習。  
 
-## Creating a project
+功能參考公司的午餐系統，將錢預放在公司，進行線上扣款，不須每次都使用現金交易
 
-If you're seeing this, you've probably already done this step. Congrats!
+## 當前功能
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- 管理者創建 & 刪除使用者
+- 使用者儲值 & 扣款
+- 系統可以產生儲值/扣款紀錄，餘額確認
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## 使用技術
 
-## Developing
+- 前端使用sveltekit(SPA)
+- 後端使用Nestjs with Prisma(Mysql)
+- 部屬使用Nginx
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 部屬
 
-```bash
-npm run dev
+使用Nginx部屬(待補全)
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. 在您的伺服器上安裝 Nginx。
+2. 在項目目錄中運行 npm run build 以構建前端，將 build 資料夾放置到 Nginx 預計指向位置。
+3. 在項目目錄中運行 npm run start:prod 以啟用後端 API。
+4. 配置 Nginx 以提供前端和後端。
 
-## Building
+## 使用
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+待補全

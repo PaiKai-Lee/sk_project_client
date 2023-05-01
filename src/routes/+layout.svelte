@@ -10,7 +10,6 @@
 	import { goto } from '$app/navigation';
 	import type { LayoutData } from './$types';
 	import { onDestroy, onMount } from 'svelte';
-	import Banner from '$lib/components/Banner.svelte';
 
 	export let data: LayoutData;
 	let showModal = false;
@@ -50,6 +49,9 @@
 
 	async function changePassword(e: SubmitEvent) {
 		// 驗證
+		if (!isCheck) {
+			alert.set({ type: 'error', message: '使否確認修改密碼' });
+		}
 		if (!password || !confirmPassword) {
 			alert.set({ type: 'error', message: '不能空白' });
 			return;
