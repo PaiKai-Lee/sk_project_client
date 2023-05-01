@@ -1,7 +1,7 @@
 import { fetchBackend } from '../utils';
 
 class User {
-	async getAllUsers(params?: { fields?: string; page?: number; limit?: number; order?: string }) {
+	async getAllUsers(params?: { fields?: string; page?: number; limit?: number; order?: string; hideDelete?:boolean }) {
 		return await fetchBackend('get', '/api/user', { params });
 	}
 

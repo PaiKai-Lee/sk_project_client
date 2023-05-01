@@ -38,7 +38,8 @@
 	onMount(async () => {
 		const [userResult, err] = await userService.getAllUsers({
 			fields: 'points',
-			order: 'points,desc'
+			order: 'points,desc',
+			hideDelete:true
 		});
 		if (err) {
 			alert.set({ type: 'error', message: err.statusText });
