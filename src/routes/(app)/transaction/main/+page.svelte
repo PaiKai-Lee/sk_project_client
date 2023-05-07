@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { transferStore, alert, userStore } from '$lib/stores';
+	import { transferStore, alertToast, userStore } from '$lib/stores';
 	import { onDestroy, onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import orderService from '$lib/services/order';
@@ -9,6 +9,7 @@
 	import Table from '$lib/components/Table.svelte';
 	import CalcTable from '$lib/components/CalcTable.svelte';
 	import CalcBar from '$lib/components/CalcBar.svelte';
+	import PageTitle from '$lib/components/PageTitle.svelte';
 
 	if (!$userStore.isAuth) goto('/login');
 
@@ -39,10 +40,10 @@
 		const [userResult, err] = await userService.getAllUsers({
 			fields: 'points',
 			order: 'points,desc',
-			hideDelete:true
+			hideDelete: true
 		});
 		if (err) {
-			alert.set({ type: 'error', message: err.statusText });
+			alertToast.addMessage({ type: 'error', message: err.statusText });
 			return;
 		}
 		transferStore.init(
@@ -75,9 +76,9 @@
 		const [_, err] = await orderService.createOrder(createOrder);
 		if (err) {
 			loading = false;
-			return alert.set({ type: 'error', message: err.statusText });
+			return alertToast.addMessage({ type: 'error', message: err.statusText });
 		}
-		alert.set({ type: 'info', message: '成功建立訂單' });
+		alertToast.addMessage({ type: 'info', message: '成功建立訂單' });
 		reloadTimer = setTimeout(() => {
 			loading = false;
 			location.reload();
@@ -125,9 +126,9 @@
 <svelte:head>
 	<title>交易主程式</title>
 </svelte:head>
-
+<PageTitle>交易主程式</PageTitle>
 {#if $transferStore && $transferStore.length > 0}
-	<div class="sticky top-0 z-10">
+	<div class="sticky z-20 top-0 backdrop-blur-md flex justify-end gap-4">
 		<Toggle bind:switchToggle={showSave}>開啟儲值</Toggle>
 	</div>
 	<Table columns={['名稱', '餘額', '扣款', '存入', '備註']} footer={true}>

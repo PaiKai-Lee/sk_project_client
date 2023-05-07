@@ -16,13 +16,13 @@ class Admin {
 		return fetchBackend('post', '/api/admin/user', { data });
 	}
 
-	editUser(id:number, data: UpdateUser) {
+	editUser(id: number, data: UpdateUser) {
 		return fetchBackend('patch', `/api/admin/user/${id}/info`, { data });
 	}
 
-	async resetPassword() {}
-
-	async removeUser() {}
+	resetPassword(id: number) {
+		return fetchBackend('post', `/api/admin/user/${id}/password`);
+	}
 }
 
 const adminService = new Admin();

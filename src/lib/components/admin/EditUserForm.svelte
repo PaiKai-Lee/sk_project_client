@@ -74,7 +74,7 @@
 				<label class="label">
 					<span class="label-text">權限</span>
 				</label>
-				<select class="select select-bordered" bind:value={role} disabled={role === 'SuperAdmin'}>
+				<select class="select select-bordered" bind:value={role}>
 					{#each roles as role, idx (idx)}
 						<option value={role.value}>{role.label}</option>
 					{/each}

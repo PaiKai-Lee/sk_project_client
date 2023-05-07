@@ -10,7 +10,7 @@ sveltekit & Nestjs 練習。
 - 使用者儲值 & 扣款
 - 系統可以產生儲值/扣款紀錄，餘額確認
 
-## 使用技術
+## 使用工具
 
 - 前端使用sveltekit(SPA)
 - 後端使用Nestjs with Prisma(Mysql)

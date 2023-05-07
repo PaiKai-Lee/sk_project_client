@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import authService from '$lib/services/auth';
-	import { alert, userStore } from '$lib/stores';
+	import { alertToast, userStore } from '$lib/stores';
 
 	if ($userStore.isAuth) goto('/');
 
@@ -12,17 +12,17 @@
 	// method
 	async function submitHandler(e: SubmitEvent) {
 		if (!inputEmail) {
-			return alert.set({ type: 'error', message: '請輸入信箱' });
+			return alertToast.addMessage({ type: 'error', message: '請輸入信箱' });
 		}
 		if (!inputPassword) {
-			return alert.set({ type: 'error', message: '請輸入密碼' });
+			return alertToast.addMessage({ type: 'error', message: '請輸入密碼' });
 		}
 		const [result, error] = await authService.login({ email: inputEmail, password: inputPassword });
 		if (error) {
-			return alert.set({ type: 'error', message: '帳號密碼錯誤' });
+			return alertToast.addMessage({ type: 'error', message: '帳號密碼錯誤' });
 		}
 		localStorage.setItem('accessToken', result.accessToken);
-		alert.set({ type: 'info', message: `Hi! ${result.name}` });
+		alertToast.addMessage({ type: 'info', message: `Hi! ${result.name}` });
 		const { accessToken, ...restResult } = result;
 		userStore.set({ ...restResult, isAuth: true });
 		goto('/');

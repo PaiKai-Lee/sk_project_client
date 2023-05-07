@@ -1,9 +1,9 @@
-<svelte-head>
+<svelte:head>
 	<title>專案進度</title>
-</svelte-head>
+</svelte:head>
 
+<h1 class="text-4xl font-bold text-shadow text-center my-4">預計項目</h1>
 <div class="mx-auto w-1/3 max-w-1/2">
-	<h1 class="text-4xl font-bold text-shadow text-center my-4">預計項目</h1>
 	<div class="container">
 		<div class="w-full p-2 my-4 shadow-md shadow-zinc-400 rounded-xl">
 			<p class="text-lg font-bold">管理者頁面</p>
