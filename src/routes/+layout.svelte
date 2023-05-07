@@ -1,12 +1,13 @@
 <script lang="ts">
 	import '../app.css';
-	import Alert from '$lib/components/Alert.svelte';
+	// import Alert from '$lib/components/Alert.svelte';
+	import AlertToast from '$lib/components/AlertToast.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import LoadingBtn from '$lib/components/LoadingBtn.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import authService from '$lib/services/auth';
 	import userService from '$lib/services/user';
-	import { alert, userStore } from '$lib/stores';
+	import { alertToast, userStore } from '$lib/stores';
 	import { goto } from '$app/navigation';
 	import type { LayoutData } from './$types';
 	import { onDestroy, onMount } from 'svelte';
@@ -37,7 +38,7 @@
 		}
 		if ($userStore.pwdChanged === 0) {
 			showModal = true;
-			alert.set({ type: 'error', message: '修改初始密碼' });
+			alertToast.addMessage({ type: 'error', message: '修改初始密碼' });
 		}
 	}
 
@@ -49,27 +50,30 @@
 
 	async function changePassword(e: SubmitEvent) {
 		// 驗證
+		if (!isCheck) {
+			alertToast.addMessage({ type: 'error', message: '使否確認修改密碼' });
+		}
 		if (!password || !confirmPassword) {
-			alert.set({ type: 'error', message: '不能空白' });
+			alertToast.addMessage({ type: 'error', message: '不能空白' });
 			return;
 		}
 		if (password !== confirmPassword) {
-			alert.set({ type: 'error', message: '密碼必須一致' });
+			alertToast.addMessage({ type: 'error', message: '密碼必須一致' });
 			return;
 		}
 		const re = /^[a-zA-Z0-9]{6,12}$/;
 		const isValidation = re.exec(password);
 		if (!isValidation) {
-			alert.set({ type: 'error', message: '密碼必須符合條件' });
+			alertToast.addMessage({ type: 'error', message: '密碼必須符合條件' });
 			return;
 		}
 		isLoading = true;
 		const [_, err] = await userService.changePassword({ password, confirmPassword });
 		if (err) {
-			alert.set({ type: 'error', message: '更新失敗' });
+			alertToast.addMessage({ type: 'error', message: '更新失敗' });
 			return;
 		}
-		alert.set({ type: 'info', message: '密碼更新成功' });
+		alertToast.addMessage({ type: 'info', message: '密碼更新成功' });
 		password = '';
 		confirmPassword = '';
 		isLoading = false;
@@ -78,12 +82,10 @@
 	}
 </script>
 
-<Alert />
-<div class="min-h-screen">
+<AlertToast />
+<div class="h-screen flex flex-col">
 	<Nav on:showModal={() => (showModal = true)} on:logout={logout} />
-	<div class="container h-full mx-auto xl:px-4">
-		<slot />
-	</div>
+	<slot />
 </div>
 
 <Modal bind:showModal>

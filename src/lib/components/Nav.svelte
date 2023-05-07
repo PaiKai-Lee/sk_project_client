@@ -7,14 +7,16 @@
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- svelte-ignore a11y-label-has-associated-control -->
-<div class="navbar bg-base-200">
+<div class="navbar bg-base-100 border-b-2">
 	<div class="flex-1">
-		<a href="/" class="btn btn-ghost normal-case text-xl">SK_System</a>
+		<a href="/" class="btn btn-ghost normal-case text-2xl">SK_System</a>
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1">
 			<li><a href="/progress">專案項目</a></li>
-			<li><a href="/admin">管理者</a></li>
+			{#if $userStore.isAuth && ($userStore.role === 'Admin' || $userStore.role === 'SuperAdmin')}
+				<li><a href="/admin">管理者</a></li>
+			{/if}
 			<li>
 				<a href="/transaction">
 					交易

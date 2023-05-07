@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PageTitle from '$lib/components/PageTitle.svelte';
 	import Pagination from '$lib/components/Pagination.svelte';
 	import SearchBar from '$lib/components/SearchBar.svelte';
 	import Table from '$lib/components/Table.svelte';
@@ -7,13 +8,16 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	let { count, limit, transactionRecords: records, page: currentPage } = data;
+	let { count, transactionRecords: records, page: currentPage } = data;
+	let limit = data.limit || 1
 	let order = 'desc';
-	let pages = Math.ceil(count / limit);
 	let userName: string;
+	$: pages = Math.ceil(count / limit);
 
 	async function clickPageHandler(e: MouseEvent) {
-		currentPage = +e.target.dataset.page;
+		const target = e.target as HTMLElement;
+		if(target.dataset.page === undefined) return ;
+		currentPage = +target.dataset.page;
 		const [result, err] = await transactionService.getRecords({
 			limit,
 			order,
@@ -45,7 +49,8 @@
 <svelte:head>
 	<title>交易紀錄</title>
 </svelte:head>
-
+<PageTitle>交易紀錄</PageTitle>
+<!-- 不會一直黏在頂部? -->
 <div class="py-2 sticky z-20 top-0 backdrop-blur-md flex justify-end gap-4">
 	<SearchBar bind:userName bind:limit bind:order on:click={searchHandler} />
 </div>

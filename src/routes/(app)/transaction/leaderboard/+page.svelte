@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PageTitle from '$lib/components/PageTitle.svelte';
 	import Table from '$lib/components/Table.svelte';
 	import Toggle from '$lib/components/Toggle.svelte';
 	import type { PageData } from './$types';
@@ -20,8 +21,8 @@
 <svelte:head>
 	<title>餘額排行榜</title>
 </svelte:head>
-
-<div class="py-2 sticky z-20 top-0 backdrop-blur-md flex justify-end gap-4">
+<PageTitle>餘額排行榜</PageTitle>
+<div class="sticky z-20 top-0 backdrop-blur-md flex justify-end gap-4">
 	<Toggle bind:switchToggle={isDeficit}>赤字名單</Toggle>
 </div>
 <Table columns={['名稱', '餘額']} footer={true}>
