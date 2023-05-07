@@ -8,12 +8,11 @@
 		<div class="w-full p-2 my-4 shadow-md shadow-zinc-400 rounded-xl">
 			<p class="text-lg font-bold">管理者頁面</p>
 			<ul class="list-disc list-inside">
-				<li>檢視所有使用者</li>
-				<li>權限管理user不能使用</li>
-				<li>重製使用者密碼</li>
-				<li>新增刪除使用者</li>
-				<li>修改使用者權限</li>
-				<li>權限管理user不能使用</li>
+				<li class="line-through">檢視所有使用者</li>
+				<li class="line-through">權限管理user不能使用</li>
+				<li class="line-through">重製使用者密碼</li>
+				<li class="line-through">新增刪除使用者</li>
+				<li class="line-through">修改使用者權限</li>
 			</ul>
 		</div>
 		<div class="w-full p-2 my-4 shadow-md shadow-zinc-400 rounded-xl">
@@ -23,8 +22,8 @@
 			<p class="text-lg font-bold">主畫面</p>
 			<ul class="list-disc list-inside">
 				<li class="line-through">網站Banner</li>
-				<li>顯示公司夥伴grid</li>
-				<li>個人圖片彈出簡介</li>
+				<li>顯示公司夥伴grid?</li>
+				<li>個人圖片彈出簡介?</li>
 			</ul>
 		</div>
 		<div class="w-full p-2 my-4 shadow-md shadow-zinc-400 rounded-xl">

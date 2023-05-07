@@ -14,7 +14,9 @@
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1">
 			<li><a href="/progress">專案項目</a></li>
-			<li><a href="/admin">管理者</a></li>
+			{#if $userStore.isAuth && ($userStore.role === 'Admin' || $userStore.role === 'SuperAdmin')}
+				<li><a href="/admin">管理者</a></li>
+			{/if}
 			<li>
 				<a href="/transaction">
 					交易
