@@ -16,7 +16,7 @@ class User {
   }
 
   async changePassword(data: { password: string; confirmPassword: string }) {
-    return await fetchBackend('patch', '/api/user/password', { data });
+    return await fetchBackend('patch', '/api/me/password', { data });
   }
 }
 
