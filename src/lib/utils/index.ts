@@ -10,6 +10,7 @@ const axiosInstance = axios.create({
 type Config = {
 	data?: any;
 	params?: object;
+	headers?: object;
 };
 
 export async function fetchBackend(
@@ -26,13 +27,24 @@ export async function fetchBackend(
 	};
 	if (config?.data) requestConfig.data = config.data;
 	if (config?.params) requestConfig.params = config.params;
+	if (config?.headers)
+		requestConfig.headers = {
+			...requestConfig.headers,
+			...config.headers
+		};
 	try {
 		const result = await axiosInstance(requestConfig);
 		return [result.data, null];
 	} catch (error) {
 		const err = error as AxiosError;
-		console.error(err.message);
-		return [null, err.response || null];
+		console.error('Error', err.message);
+		if (err.response) {
+			console.error(err.response.data);
+			return [null, err.response];
+		} else {
+			console.error(err.request);
+			return [null, err.request];
+		}
 	}
 }
 
