@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 @layer base {
-	html {
-		height: 100%;
-	}
-	body {
-		height: 100%;
-	}
+  html {
+    height: 100%;
+  }
+  body {
+    height: 100%;
+  }
 }
 
 @layer utilities {
-	.text-shadow {
-		text-shadow: 2px 2px 6px grey;
-	}
-	.text-shadow-none {
-		text-shadow: none;
-	}
+  .text-shadow {
+    text-shadow: 2px 2px 6px grey;
+  }
+  .text-shadow-none {
+    text-shadow: none;
+  }
 }

@@ -1,6 +1,6 @@
 # SK_System
 
-sveltekit & Nestjs 練習。  
+sveltekit & Nestjs 練習。
 
 功能參考公司的午餐系統，將錢預放在公司，進行線上扣款，不須每次都使用現金交易
 
@@ -12,13 +12,13 @@ sveltekit & Nestjs 練習。
 
 ## 使用工具
 
-- 前端使用sveltekit(SPA)
-- 後端使用Nestjs with Prisma(Mysql)
-- 部屬使用Nginx
+- 前端使用 sveltekit(SPA)
+- 後端使用 Nestjs with Prisma(Mysql)
+- 部屬使用 Nginx
 
 ## 部屬
 
-使用Nginx部屬(待補全)
+使用 Nginx 部屬(待補全)
 
 1. 在您的伺服器上安裝 Nginx。
 2. 在項目目錄中運行 npm run build 以構建前端，將 build 資料夾放置到 Nginx 預計指向位置。

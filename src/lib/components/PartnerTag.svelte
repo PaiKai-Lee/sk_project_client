@@ -1,7 +1,7 @@
 <script lang="ts">
-  export let name:string;
-  export let department:string;
-  export let avatar:string;
+  export let name: string;
+  export let department: string;
+  export let avatar: string;
 </script>
 
 <div class="flex items-center space-x-3 max-w-xs">

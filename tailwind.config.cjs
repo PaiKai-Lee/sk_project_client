@@ -6,17 +6,16 @@ export default {
       keyframes: {
         fill: {
           '0%': { fill: 'transparent' },
-          '100%': { fill: 'black' },
+          '100%': { fill: 'black' }
         }
       },
-      animation:{
+      animation: {
         fill: 'fill 1s ease-in forwards'
       }
-    },
+    }
   },
-  plugins: [require("daisyui")],
+  plugins: [require('daisyui')],
   daisyui: {
     themes: ['winter']
   }
-}
-
+};
