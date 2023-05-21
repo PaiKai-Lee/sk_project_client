@@ -34,7 +34,7 @@
 	let bodyEl: HTMLElement | null;
 	let reloadTimer: number;
 	$: calcBalance = getCalcBalance($transferStore);
-
+	let pageLoading = true;
 	// life cycle
 	onMount(async () => {
 		const [userResult, err] = await userService.getAllUsers({
@@ -59,6 +59,7 @@
 				};
 			})
 		);
+		pageLoading = false;
 	});
 
 	onDestroy(() => {
@@ -127,7 +128,9 @@
 	<title>交易主程式</title>
 </svelte:head>
 <PageTitle>交易主程式</PageTitle>
-{#if $transferStore && $transferStore.length > 0}
+{#if pageLoading}
+	Loading...
+{:else}
 	<div class="sticky z-20 top-0 backdrop-blur-md flex justify-end gap-4">
 		<Toggle bind:switchToggle={showSave}>開啟儲值</Toggle>
 	</div>

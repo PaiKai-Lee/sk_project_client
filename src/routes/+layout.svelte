@@ -83,9 +83,10 @@
 </script>
 
 <AlertToast />
-<div class="h-screen flex flex-col">
+<div class="min-h-screen flex flex-col">
 	<Nav on:showModal={() => (showModal = true)} on:logout={logout} />
 	<slot />
+	<Footer />
 </div>
 
 <Modal bind:showModal>

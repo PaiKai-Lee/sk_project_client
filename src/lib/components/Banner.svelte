@@ -16,8 +16,8 @@
 	];
 </script>
 
-<div class="h-1/3 bg-gradient-to-r from-transparent to-base-300">
-	<div class="container h-full mx-auto flex flex-col gap-4 justify-center">
+<div class="h-1/3 min-h-[33%] bg-gradient-to-r from-transparent to-base-300">
+	<div class="container h-full p-4 mx-auto flex flex-col gap-4 justify-center">
 		{#if showSvg}
 			<div>
 				<svg
@@ -40,7 +40,7 @@
 			</div>
 		{/if}
 		<div>
-			<p class="text-xl font-semibold">選擇坂和，一&#960;即合</p>
+			<p class="text-xl font-semibold">Lorem ipsum dolor sit amet </p>
 		</div>
 	</div>
 </div>
