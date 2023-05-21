@@ -1,8 +1,8 @@
 <script lang="ts">
-	import PageTitle from '$lib/components/PageTitle.svelte';
-	import Pagination from '$lib/components/Pagination.svelte';
+	import PageTitle from '$lib/components/common/PageTitle.svelte';
+	import Pagination from '$lib/components/common/Pagination.svelte';
 	import SearchBar from '$lib/components/SearchBar.svelte';
-	import Table from '$lib/components/Table.svelte';
+	import Table from '$lib/components/common/Table.svelte';
 	import transactionService from '$lib/services/transaction';
 	import { scrollTo } from '$lib/utils';
 	import type { PageData } from './$types';

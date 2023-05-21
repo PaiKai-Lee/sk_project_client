@@ -1,5 +1,5 @@
 <script lang="ts">
-	import LoadingBtn from './LoadingBtn.svelte';
+	import LoadingBtn from './common/LoadingBtn.svelte';
 
 	export let confirmData: any = [];
 	export let columns: string[];

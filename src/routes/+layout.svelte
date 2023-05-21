@@ -1,16 +1,16 @@
 <script lang="ts">
 	import '../app.css';
-	// import Alert from '$lib/components/Alert.svelte';
-	import AlertToast from '$lib/components/AlertToast.svelte';
-	import Nav from '$lib/components/Nav.svelte';
-	import LoadingBtn from '$lib/components/LoadingBtn.svelte';
-	import Modal from '$lib/components/Modal.svelte';
+	import AlertToast from '$lib/components/common/AlertToast.svelte';
+	import Nav from '$lib/components/common/Nav.svelte';
+	import LoadingBtn from '$lib/components/common/LoadingBtn.svelte';
+	import Modal from '$lib/components/common/Modal.svelte';
 	import authService from '$lib/services/auth';
 	import userService from '$lib/services/user';
 	import { alertToast, userStore } from '$lib/stores';
 	import { goto } from '$app/navigation';
 	import type { LayoutData } from './$types';
 	import { onDestroy, onMount } from 'svelte';
+	import Footer from '$lib/components/common/Footer.svelte';
 
 	export let data: LayoutData;
 	let showModal = false;

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import PageTitle from '$lib/components/PageTitle.svelte';
-	import Table from '$lib/components/Table.svelte';
-	import Toggle from '$lib/components/Toggle.svelte';
+	import PageTitle from '$lib/components/common/PageTitle.svelte';
+	import Table from '$lib/components/common/Table.svelte';
+	import Toggle from '$lib/components/common/Toggle.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;

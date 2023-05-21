@@ -7,7 +7,7 @@
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- svelte-ignore a11y-label-has-associated-control -->
-<div class="navbar bg-base-100 border-b-2">
+<div class="navbar h-[72px] min-h-[72px] bg-base-100 border-b-2">
 	<div class="flex-1">
 		<a href="/" class="btn btn-ghost normal-case text-2xl">SK_System</a>
 	</div>

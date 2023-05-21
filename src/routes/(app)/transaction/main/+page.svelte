@@ -4,12 +4,12 @@
 	import { goto } from '$app/navigation';
 	import orderService from '$lib/services/order';
 	import userService from '$lib/services/user';
-	import Modal from '$lib/components/Modal.svelte';
-	import Toggle from '$lib/components/Toggle.svelte';
-	import Table from '$lib/components/Table.svelte';
+	import Modal from '$lib/components/common/Modal.svelte';
+	import Toggle from '$lib/components/common/Toggle.svelte';
+	import Table from '$lib/components/common/Table.svelte';
 	import CalcTable from '$lib/components/CalcTable.svelte';
 	import CalcBar from '$lib/components/CalcBar.svelte';
-	import PageTitle from '$lib/components/PageTitle.svelte';
+	import PageTitle from '$lib/components/common/PageTitle.svelte';
 
 	if (!$userStore.isAuth) goto('/login');
 

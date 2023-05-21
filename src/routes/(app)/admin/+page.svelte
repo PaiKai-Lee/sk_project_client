@@ -3,13 +3,13 @@
 	import { alertToast, userStore } from '$lib/stores';
 	import userService from '$lib/services/user';
 	import { onMount } from 'svelte';
-	import Table from '$lib/components/Table.svelte';
-	import Modal from '$lib/components/Modal.svelte';
+	import Table from '$lib/components/common/Table.svelte';
+	import Modal from '$lib/components/common/Modal.svelte';
 	import ResetPwdForm from '$lib/components/admin/ResetPwdForm.svelte';
 	import EditUserForm from '$lib/components/admin/EditUserForm.svelte';
 	import CreateUserForm from '$lib/components/admin/CreateUserForm.svelte';
 	import adminService from '$lib/services/admin';
-	import PageTitle from '$lib/components/PageTitle.svelte';
+	import PageTitle from '$lib/components/common/PageTitle.svelte';
 
 	interface User {
 		id: number;

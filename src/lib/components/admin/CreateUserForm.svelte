@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import LoadingBtn from '../LoadingBtn.svelte';
+	import LoadingBtn from '../common/LoadingBtn.svelte';
 
 	type Role = 'Admin' | 'User';
 
