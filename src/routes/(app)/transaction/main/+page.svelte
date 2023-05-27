@@ -134,7 +134,7 @@
   <div class="sticky z-20 top-0 backdrop-blur-md flex justify-end gap-4">
     <Toggle bind:switchToggle={showSave}>開啟儲值</Toggle>
   </div>
-  <Table columns={['名稱', '餘額', '扣款', '存入', '備註']} footer={true}>
+  <Table columns={['名稱', '餘額', '扣款', '存入', '備註']} footer>
     {#each $transferStore as item (item.id)}
       <tr class="group">
         <td

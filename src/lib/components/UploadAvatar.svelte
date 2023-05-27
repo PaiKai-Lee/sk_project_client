@@ -13,7 +13,6 @@
     const inputEl = e.target as HTMLInputElement;
     if (inputEl.files) {
       const file = inputEl.files[0];
-      console.log(file);
       const reader = new FileReader();
       reader.onload = (e) => {
         preview = true;

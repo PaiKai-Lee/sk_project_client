@@ -25,7 +25,7 @@
 <div class="sticky z-20 top-0 backdrop-blur-md flex justify-end gap-4">
   <Toggle bind:switchToggle={isDeficit}>赤字名單</Toggle>
 </div>
-<Table columns={['名稱', '餘額']} footer={true}>
+<Table columns={['名稱', '餘額']} footer>
   {#if filterRecords}
     {#each filterRecords as { id, name, points } (id)}
       {@const bgCondition = points < 0 ? 'bg-error' : 'bg-base-300'}

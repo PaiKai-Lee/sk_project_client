@@ -38,13 +38,13 @@
       <li>
         <label class="avatar">
           <div class="rounded-full">
-            <img alt="avatar" src={avatar} />
+            <a href="/me"> <img alt="avatar" src={avatar} /></a>
           </div>
         </label>
         <ul class="p-2 bg-base-100 z-50 right-0">
           {#if $userStore.isAuth}
             <div class="border-b-2">
-              <p class="text-base text-center font-extrabold py-2 mb-2 rounded-lg bg-base-200">
+              <p class="text-base text-center font-extrabold py-2 px-1 mb-2 rounded-lg bg-base-200">
                 {$userStore.name}
               </p>
             </div>

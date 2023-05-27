@@ -22,7 +22,7 @@ class Me {
     return fetchBackend('get', '/api/me/records');
   }
 
-  async uplaodAvatar(formData: FormData) {
+  uplaodAvatar(formData: FormData) {
     return fetchBackend('post', '/api/me/avatar', {
       data: formData,
       headers: { 'Content-type': 'multipart/form-data' }

@@ -25,7 +25,7 @@
         <p>Lorem ipsum dolor sit amet</p>
       </div>
     </div>
-    <div class="overflow-hidden flex-auto grid grid-cols-8 grid-flow-row gap-6 justify-start">
+    <div class="overflow-hidden flex-auto grid grid-cols-4 grid-flow-row gap-6 justify-start xl:grid-cols-8">
       {#each users as { id, ...user } (id)}
         <PartnerTag {...user} />
       {/each}
