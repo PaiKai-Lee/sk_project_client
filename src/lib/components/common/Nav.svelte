@@ -36,11 +36,13 @@
         </ul>
       </li>
       <li>
-        <label class="avatar">
-          <div class="rounded-full">
-            <a href="/me"> <img alt="avatar" src={avatar} /></a>
-          </div>
-        </label>
+        <a href="/me">
+          <label class="avatar">
+            <div class="rounded-full">
+              <img alt="avatar" src={avatar} />
+            </div>
+          </label>
+        </a>
         <ul class="p-2 bg-base-100 z-50 right-0">
           {#if $userStore.isAuth}
             <div class="border-b-2">

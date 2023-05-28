@@ -1,11 +1,12 @@
 <script lang="ts">
   import meService from '$lib/services/me';
-  import { alertToast } from '$lib/stores';
+  import { alertToast, userStore } from '$lib/stores';
   import { onMount } from 'svelte';
   import { faker } from '@faker-js/faker';
   import addImg from '$lib/assets/add-img.svg';
   import Modal from '$lib/components/common/Modal.svelte';
   import UploadAvatar from '$lib/components/UploadAvatar.svelte';
+  import { goto } from '$app/navigation';
 
   interface Me {
     id: number;
@@ -31,6 +32,8 @@
     SuperAdmin: '最高管理者'
   };
 
+  if (!$userStore.isAuth) goto('/login');
+
   let showModal = false;
   let user: Me;
   let transactions: Transaction[];
@@ -52,18 +55,7 @@
   function clickAddImage() {
     showModal = true;
   }
-  function changeHandler(e: Event) {
-    const inputEl = e.target as HTMLInputElement;
-    if (inputEl.files && inputEl.files[0]) {
-      const file = inputEl.files[0];
-      const reader = new FileReader();
 
-      reader.onload = (e) => {
-        preview.setAttribute('src', e.target.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  }
   async function uploadAvatar(e: CustomEvent) {
     const formData = e.detail.form;
     const [_, error] = await meService.uplaodAvatar(formData);

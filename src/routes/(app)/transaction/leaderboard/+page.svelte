@@ -16,6 +16,7 @@
   let records: userBalance[] | undefined = data.records;
   let isDeficit = false;
   $: filterRecords = isDeficit ? records?.filter((record) => record.points < 0) : records;
+  $: calcBalance = filterRecords?.reduce((previous, current) => current.points + previous, 0) || 0;
 </script>
 
 <svelte:head>
@@ -34,5 +35,9 @@
         <td class="{bgCondition} w-3/4">{points}</td>
       </tr>
     {/each}
+    <tr class="font-extrabold">
+      <td class="w-1/4">總計 :</td>
+      <td class="w-3/4">{calcBalance}</td>
+    </tr>
   {/if}
 </Table>
