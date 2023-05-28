@@ -1,15 +1,26 @@
 <script lang="ts">
   import Banner from '$lib/components/Banner.svelte';
   import PartnerTag from '$lib/components/PartnerTag.svelte';
-  import { faker } from '@faker-js/faker';
-  const users = new Array(100).fill(0).map((item, idx) => {
+  import TempAvatar from '$lib/assets/temp-avatar.svg';
+  import type { PageData } from './$types';
+
+  export let data: PageData;
+
+  interface User {
+    id: string;
+    role: 'User' | 'Admin' | 'SuperAdmin';
+    avatar: string;
+    department: string;
+  }
+  console.log(data);
+  const api = import.meta.env.VITE_API_URL;
+  $: users = data.users.map((user: User) => {
     return {
-      id: idx + 1,
-      name: faker.person.firstName(),
-      department: faker.company.buzzVerb(),
-      avatar: faker.image.avatar()
+      ...user,
+      avatar: user.avatar ? api + user.avatar : TempAvatar
     };
   });
+  $: console.log(users);
 </script>
 
 <svelte:head>
@@ -25,7 +36,9 @@
         <p>Lorem ipsum dolor sit amet</p>
       </div>
     </div>
-    <div class="overflow-hidden flex-auto grid grid-cols-4 grid-flow-row gap-6 justify-start xl:grid-cols-8">
+    <div
+      class="overflow-hidden flex-auto grid grid-cols-4 grid-flow-row gap-6 justify-start xl:grid-cols-8"
+    >
       {#each users as { id, ...user } (id)}
         <PartnerTag {...user} />
       {/each}

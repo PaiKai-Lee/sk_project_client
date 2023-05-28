@@ -7,11 +7,11 @@
 <div class="flex items-center space-x-3 max-w-xs">
   <div class="avatar">
     <div class="mask mask-squircle w-14 h-14">
-      <img src={avatar} alt="Avatar Tailwind CSS Component" />
+      <img src={avatar} alt="Avatar" />
     </div>
   </div>
-  <div>
-    <div class="font-bold">{name}</div>
-    <div class="text-sm opacity-50">{department}</div>
+  <div class="w-full">
+    <p class="font-bold break-all">{name}</p>
+    <p class="text-sm opacity-50">{department}</p>
   </div>
 </div>

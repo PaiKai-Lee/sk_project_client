@@ -12,7 +12,7 @@ class Me {
     return [
       {
         ...result,
-        avatar: avatarSrc
+        avatar: avatar ? avatarSrc : ''
       },
       null
     ];

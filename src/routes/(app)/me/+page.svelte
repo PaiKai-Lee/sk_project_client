@@ -2,11 +2,11 @@
   import meService from '$lib/services/me';
   import { alertToast, userStore } from '$lib/stores';
   import { onMount } from 'svelte';
-  import { faker } from '@faker-js/faker';
   import addImg from '$lib/assets/add-img.svg';
   import Modal from '$lib/components/common/Modal.svelte';
   import UploadAvatar from '$lib/components/UploadAvatar.svelte';
   import { goto } from '$app/navigation';
+  import TempAvatar from '$lib/assets/temp-avatar.svg';
 
   interface Me {
     id: number;
@@ -70,16 +70,13 @@
   }
 </script>
 
-{JSON.stringify(user, null, 2)}
-<br />
-{JSON.stringify(transactions, null, 2)}
 {#if user}
   <div class="w-full border-2 border-black rounded-md">
     <div class="flex p-4 h-44">
       <div class="flex-1 flex items-center space-x-6">
         <div class="avatar">
           <div class="w-28 h-28 relative">
-            <img src={user.avatar || faker.image.image()} alt="" class="rounded-full" />
+            <img src={user.avatar || TempAvatar} alt="" class="rounded-full" />
             <button
               class="absolute w-8 h-8 p-2 bottom-1 right-1 rounded-full cursor-pointer bg-white border-2 border-gray-200"
               on:click={clickAddImage}
