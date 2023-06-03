@@ -92,10 +92,12 @@
         </div>
       </div>
       <div class="flex justify-center items-center mr-8">
-        <button
-          class="border-2 p-1 font-semibold border-gray-300 rounded-md active:bg-black active:text-gray-50 transition-all duration-75"
-          >Edit profile</button
-        >
+        <div class="tooltip" data-tip="也許會有，現在沒有">
+          <button
+            class="border-2 p-1 font-semibold border-gray-300 rounded-md active:bg-black active:text-gray-50 transition-all duration-75"
+            >Edit profile</button
+          >
+        </div>
       </div>
     </div>
   </div>

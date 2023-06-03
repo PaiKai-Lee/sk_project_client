@@ -3,7 +3,7 @@ import type { PageLoad } from './$types';
 
 // @ts-ignore
 export const load: PageLoad = async () => {
-  const [result, err] = await userService.getAllUsers({ fields: 'avatar,department' });
-  if (!result || err) return {};
+  const [result, err] = await userService.getAllPartners();
+  if (!result || err) return { users: [] };
   return { users: result };
 };

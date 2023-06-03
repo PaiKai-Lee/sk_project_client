@@ -1,8 +1,12 @@
 # SK_System
 
-sveltekit & Nestjs 練習。
+[Demo website]('https://bklee.me/')
 
-功能參考公司的午餐系統，將錢預放在公司，進行線上扣款，不須每次都使用現金交易
+測試帳號: testAdmin01@sk.com / 66666666
+
+sveltekit & Nestjs 練習專案。
+
+功能參考公司的午餐系統，將錢預放在公司，進行線上扣款，不須每次都使用現金交易，並加入權限功能
 
 ## 當前功能
 

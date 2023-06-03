@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, getContext } from 'svelte';
+  import type { Writable } from 'svelte/store';
   const dispatch = createEventDispatcher<{
     resetPwd: {
       id: number;
@@ -10,6 +11,12 @@
   export let id: number;
   export let name: string;
   let isCheck = false;
+  const modalStatus: Writable<boolean> = getContext('modalStatus');
+    
+  $: if ($modalStatus === false) {
+    isCheck = false;
+  }
+
   function clickHandler() {
     dispatch('resetPwd', {
       id,

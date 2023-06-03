@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, getContext } from 'svelte';
   import LoadingBtn from '../common/LoadingBtn.svelte';
 
   type Role = 'Admin' | 'User';
@@ -18,10 +18,6 @@
     { value: 'Admin', label: '管理者' },
     { value: 'User', label: '一般使用者' }
   ];
-
-  // let departments = [
-
-  // ]
 
   // state
   let isCheck = false;
