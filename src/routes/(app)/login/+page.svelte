@@ -33,6 +33,7 @@
   <title>登入頁</title>
 </svelte:head>
 {#if !$userStore.isAuth}
+  <!-- svelte-ignore a11y-label-has-associated-control -->
   <div class="hero h-full">
     <div class="hero-content flex-col lg:flex-row-reverse">
       <div class="text-center lg:text-left lg:max-w-xl">
@@ -46,7 +47,6 @@
       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <form on:submit={submitHandler} class="card-body">
           <div class="form-control">
-            <!-- svelte-ignore a11y-label-has-associated-control -->
             <label class="label">
               <span class="label-text">Email</span>
             </label>
@@ -58,7 +58,6 @@
             />
           </div>
           <div class="form-control">
-            <!-- svelte-ignore a11y-label-has-associated-control -->
             <label class="label">
               <span class="label-text">Password</span>
             </label>
@@ -68,9 +67,10 @@
               class="input input-bordered"
               bind:value={inputPassword}
             />
-            <!-- svelte-ignore a11y-label-has-associated-control -->
             <label class="label">
-              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+              <div class="tooltip tooltip-right" data-tip="請找管理員重製密碼">
+                <span class="label-text-alt link link-hover">Forgot password?</span>
+              </div>
             </label>
           </div>
           <div class="form-control mt-6">

@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, getContext } from 'svelte';
   import LoadingBtn from '../common/LoadingBtn.svelte';
+  import type { Writable } from 'svelte/store';
 
   type Role = 'SuperAdmin' | 'Admin' | 'User';
 
@@ -20,10 +21,6 @@
     { value: 'User', label: '一般使用者' }
   ];
 
-  // let departments = [
-
-  // ]
-
   // state
   let isCheck = false;
   export let title = 'Form Title';
@@ -34,8 +31,12 @@
   export let department = 'temp';
   export let isDelete = false;
   export let isLoading = false;
+  const modalStatus:Writable<boolean> = getContext('modalStatus');
 
   $: userStatus = isDelete ? '1' : '0';
+  $: if ($modalStatus === false) {
+    isCheck = false;
+  }
   function clickHandler() {
     dispatch('editUser', {
       id,

@@ -4,7 +4,7 @@
   export let avatar: string;
 </script>
 
-<div class="flex items-center space-x-3 max-w-xs">
+<div class="flex items-center space-x-2 max-w-xs">
   <div class="avatar">
     <div class="mask mask-squircle w-14 h-14">
       <img src={avatar} alt="Avatar" />

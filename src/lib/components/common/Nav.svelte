@@ -37,11 +37,11 @@
       </li>
       <li>
         <a href="/me">
-          <label class="avatar">
+          <button class="avatar">
             <div class="rounded-full">
               <img alt="avatar" src={avatar} />
             </div>
-          </label>
+          </button>
         </a>
         <ul class="p-2 bg-base-100 z-50 right-0">
           {#if $userStore.isAuth}

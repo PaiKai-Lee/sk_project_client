@@ -1,8 +1,14 @@
 <script lang="ts">
+  import { setContext } from 'svelte';
+  import { writable } from 'svelte/store';
+
   type ItemAlign = 'start' | 'center' | 'end';
 
+  const modalStatus = writable(false);
   export let showModal: boolean = false;
   export let itemAlign: ItemAlign = 'start';
+  $: $modalStatus = showModal;
+  setContext('modalStatus', modalStatus);
 
   function flexAlign(itemAlign: ItemAlign) {
     switch (itemAlign) {

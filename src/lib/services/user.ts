@@ -18,6 +18,10 @@ class User {
   async changePassword(data: { password: string; confirmPassword: string }) {
     return await fetchBackend('patch', '/api/me/password', { data });
   }
+
+  async getAllPartners() {
+    return await fetchBackend('get', '/api/user/partners');
+  }
 }
 
 const userService = new User();

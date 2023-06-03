@@ -81,6 +81,7 @@
     const { id, ...updateData } = e.detail;
     const [_, error] = await adminService.editUser(id, updateData);
     if (error) {
+      isLoading = false;
       return alertToast.addMessage({ type: 'error', message: '修改失敗' });
     }
     alertToast.addMessage({ type: 'info', message: `${updateData.name} 修改成功` });
@@ -89,6 +90,7 @@
       order: 'id,asc'
     });
     if (err) {
+      isLoading = false;
       return alertToast.addMessage({ type: 'error', message: err.statusText });
     }
     users = userResult;
