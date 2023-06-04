@@ -42,7 +42,7 @@
       order: 'id,asc'
     });
     if (err) {
-      alertToast.addMessage({ type: 'error', message: err.statusText });
+      alertToast.addMessage({ type: 'error', message: err?.data.message });
       return;
     }
     users = userResult;
@@ -91,7 +91,7 @@
     });
     if (err) {
       isLoading = false;
-      return alertToast.addMessage({ type: 'error', message: err.statusText });
+      return alertToast.addMessage({ type: 'error', message: err?.data.message });
     }
     users = userResult;
     showModal = false;

@@ -43,7 +43,7 @@
       hideDelete: true
     });
     if (err) {
-      alertToast.addMessage({ type: 'error', message: err.statusText });
+      alertToast.addMessage({ type: 'error', message: err?.data.message });
       return;
     }
     transferStore.init(
@@ -77,7 +77,7 @@
     const [_, err] = await orderService.createOrder(createOrder);
     if (err) {
       loading = false;
-      return alertToast.addMessage({ type: 'error', message: err.statusText });
+      return alertToast.addMessage({ type: 'error', message: err?.data.message });
     }
     alertToast.addMessage({ type: 'info', message: '成功建立訂單' });
     reloadTimer = setTimeout(() => {

@@ -41,11 +41,11 @@
   onMount(async () => {
     const [meResult, meError] = await meService.getMyProfile();
     if (meError) {
-      return alertToast.addMessage({ type: 'error', message: meError.statusText });
+      return alertToast.addMessage({ type: 'error', message: meError?.data.message });
     }
     const [transactionsResut, transactionsError] = await meService.getMyRecords();
     if (transactionsError) {
-      return alertToast.addMessage({ type: 'error', message: transactionsError.statusText });
+      return alertToast.addMessage({ type: 'error', message: transactionsError?.data.message });
     }
     user = meResult;
     transactions = transactionsResut;
@@ -60,7 +60,7 @@
     const formData = e.detail.form;
     const [_, error] = await meService.uplaodAvatar(formData);
     if (error) {
-      return alertToast.addMessage({ type: 'error', message: error.statusText });
+      return alertToast.addMessage({ type: 'error', message: error?.data.message });
     }
     alertToast.addMessage({ type: 'info', message: '上傳成功' });
     setTimeout(() => {
